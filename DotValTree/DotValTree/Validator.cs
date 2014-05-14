@@ -28,6 +28,8 @@ namespace DotValTree
 
         public void RemoveTrunk(ITrunk trunk)
         {
+            Trunks.Remove(trunk);
+            OnValidate -= trunk.Validate;
         }
     }
 }
