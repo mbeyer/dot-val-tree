@@ -5,7 +5,8 @@ using System.Text;
 
 namespace DotValTree
 {
-    public class Trunk
+    public class Leaf
     {
+
     }
 }

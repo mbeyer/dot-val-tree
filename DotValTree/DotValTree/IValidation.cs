@@ -19,18 +19,18 @@ namespace DotValTree
         /// Adds a validation trunk to the validator
         /// </summary>
         /// <param name="trunk">The trunk to add</param>
-        void AddTrunk(Trunk trunk);
+        void AddTrunk(ITrunk trunk);
 
         /// <summary>
         /// Removes a validation trunk from the validator
         /// </summary>
         /// <param name="trunk">The trunk to remove</param>
-        void RemoveTrunk(Trunk trunk);
+        void RemoveTrunk(ITrunk trunk);
 
         /// <summary>
         /// Returns all trunks that are held by the validator
         /// </summary>
         /// <returns></returns>
-        ICollection<Trunk> GetAllTrunks();
+        ICollection<ITrunk> GetAllTrunks();
     }
 }
