@@ -26,11 +26,5 @@ namespace DotValTree
         /// </summary>
         /// <param name="trunk">The trunk to remove</param>
         void RemoveTrunk(ITrunk trunk);
-
-        /// <summary>
-        /// Returns all trunks that are held by the validator
-        /// </summary>
-        /// <returns></returns>
-        ICollection<ITrunk> GetAllTrunks();
     }
 }

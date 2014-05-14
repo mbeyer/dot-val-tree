@@ -28,12 +28,6 @@ namespace DotValTree
 
         public void RemoveTrunk(ITrunk trunk)
         {
-            throw new NotImplementedException();
-        }
-
-        public ICollection<ITrunk> GetAllTrunks()
-        {
-            throw new NotImplementedException();
         }
     }
 }
