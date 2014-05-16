@@ -16,7 +16,11 @@ namespace DotValTree
 
         public void Validate(object obj, ValidationEventArgs args)
         {
-            throw new NotImplementedException();
+            foreach(var element in Leafs)
+            {
+                if (element.Validate(args.CompareObject))
+                    args.IsValid = true;
+            }
         }
     }
 }

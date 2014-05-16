@@ -14,10 +14,22 @@ namespace DotValTree
         public int Id { get; set; }
         public string Name { get; set; }
         public ICollection<ITrunk> Trunks { get; set; }
-        
+
+        public Validator()
+        {
+            Trunks = new List<ITrunk>();
+        }
+
+        #region PUBLIC_METHODS
+
         public bool Validate(object obj)
         {
-            return false;
+            var args = new ValidationEventArgs() { IsValid = false, CompareObject = obj };
+            var handler = OnValidate;
+            if (handler != null)
+                handler(this, args);
+
+            return args.IsValid;
         }
 
         public void AddTrunk(ITrunk trunk)
@@ -31,5 +43,6 @@ namespace DotValTree
             Trunks.Remove(trunk);
             OnValidate -= trunk.Validate;
         }
+        #endregion
     }
 }

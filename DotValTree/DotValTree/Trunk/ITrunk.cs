@@ -10,7 +10,7 @@ namespace DotValTree
     public interface ITrunk
     {
         /// <summary>
-        /// Validate pre-configured properties of a given object
+        /// Validate pre-configured properties for a given object
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>

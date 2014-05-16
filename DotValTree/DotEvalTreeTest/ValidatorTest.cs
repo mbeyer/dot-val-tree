@@ -32,6 +32,16 @@ namespace DotEvalTreeTest
         [Test]
         public void ValidateSuccessful()
         {
+            var leaf = new Leaf() {Value = 5, Evaluation = "a.ValueA < b" };
+            var leafList = new List<Leaf>();
+
+            leafList.Add(leaf);
+
+            var trunk = new Trunk() {Leafs = leafList };
+
+
+            _validator.AddTrunk(trunk);
+
             var returnValue = _validator.Validate(_testObj);
 
             Assert.IsTrue(returnValue);

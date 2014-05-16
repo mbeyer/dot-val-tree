@@ -9,6 +9,7 @@ namespace DotValTree.Events
     public class ValidationEventArgs : EventArgs
     {
         public bool IsValid { get; set; }
+        public object CompareObject { get; set; }
 
         public ValidationEventArgs()
         {
