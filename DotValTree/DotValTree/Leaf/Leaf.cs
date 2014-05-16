@@ -6,9 +6,9 @@ using System.Text;
 
 namespace DotValTree
 {
-    public class Leaf
+    public class Leaf : ILeaf
     {
-        public ICollection<Value> Values { get; set; }
+        public ICollection<IValue> Values { get; set; }
 
         public bool Validate(object obj)
         {

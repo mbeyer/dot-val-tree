@@ -12,7 +12,7 @@ namespace DotValTree
     /// </summary>
     public class Trunk : ITrunk
     {
-        public ICollection<Leaf> Leafs { get; set; }
+        public ICollection<ILeaf> Leafs { get; set; }
 
         public void Validate(object obj, ValidationEventArgs args)
         {

@@ -32,19 +32,19 @@ namespace DotEvalTreeTest
         [Test]
         public void ValidateSuccessful()
         {
-            var valueList = new List<Value>();
+            var valueList = new List<IValue>();
             var value = new Value() { ValidationValue = 5, Evaluation = "a.ValueA < b" };
             valueList.Add(value);
             var value1 = new Value() { ValidationValue = 5, Evaluation = "a.ValueA > b" };
             valueList.Add(value1);
             var leaf = new Leaf() { Values = valueList };
 
-            var valueList2 = new List<Value>();
+            var valueList2 = new List<IValue>();
             var value2 = new Value() { ValidationValue = "This is a test", Evaluation = "a.ValueB == b" };
             valueList2.Add(value);
             var leaf2 = new Leaf() { Values = valueList2 };
 
-            var leafList = new List<Leaf>();
+            var leafList = new List<ILeaf>();
             leafList.Add(leaf);
             leafList.Add(leaf2);
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DotValTree
 {
-    public class Value
+    public class Value : IValue
     {
         public object ValidationValue { get; set; }
         public string Evaluation { get; set; }
