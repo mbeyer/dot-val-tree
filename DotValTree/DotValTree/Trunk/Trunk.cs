@@ -18,8 +18,8 @@ namespace DotValTree
         {
             foreach(var element in Leafs)
             {
-                if (element.Validate(args.CompareObject))
-                    args.IsValid = true;
+                if (!element.Validate(args.CompareObject))
+                    args.IsValid = false;
             }
         }
     }

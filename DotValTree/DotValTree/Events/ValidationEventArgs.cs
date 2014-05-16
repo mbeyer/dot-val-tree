@@ -13,7 +13,7 @@ namespace DotValTree.Events
 
         public ValidationEventArgs()
         {
-            IsValid = false;
+            IsValid = true;
         }
     }
 }

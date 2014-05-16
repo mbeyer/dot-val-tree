@@ -24,7 +24,7 @@ namespace DotValTree
 
         public bool Validate(object obj)
         {
-            var args = new ValidationEventArgs() { IsValid = false, CompareObject = obj };
+            var args = new ValidationEventArgs() { CompareObject = obj };
             var handler = OnValidate;
             if (handler != null)
                 handler(this, args);
