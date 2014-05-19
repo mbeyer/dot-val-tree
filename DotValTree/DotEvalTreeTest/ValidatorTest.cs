@@ -6,20 +6,21 @@ using System.Threading.Tasks;
 using NUnit.Framework;
 using DotValTree;
 using DotEvalTreeTest.Helper;
+using DotValTree.Nodes;
 
 namespace DotEvalTreeTest
 {
     [TestFixture]
     public class ValidatorTest
     {
-        private Validator _validator;
+        private AbstractLogicalNode _node;
 
         private ComplexTestObject _testObj;
 
         [SetUp]
         public void SetUp()
         {
-            _validator = new Validator();
+            _node = new AndNode();
             _testObj = new ComplexTestObject { ValueA = 1, ValueB = "This is a test" };
         }
 
@@ -32,25 +33,24 @@ namespace DotEvalTreeTest
         [Test]
         public void ValidateSuccessful()
         {
-            var valueList = new List<IValue>();
-            var value = new Value() { ValidationValue = 5, Evaluation = "a.ValueA < b" };
-            valueList.Add(value);
-            var value1 = new Value() { ValidationValue = 5, Evaluation = "a.ValueA > b" };
-            valueList.Add(value1);
-            var leaf = new Leaf() { Values = valueList };
+            var value1 = new ValueNode() { ValidationValue = 5, Evaluation = "a.ValueA < b" };
+            var value2 = new ValueNode() { ValidationValue = 0, Evaluation = "a.ValueA > b" };
 
-            var valueList2 = new List<IValue>();
-            var value2 = new Value() { ValidationValue = "This is a test", Evaluation = "a.ValueB == b" };
-            valueList2.Add(value);
-            var leaf2 = new Leaf() { Values = valueList2 };
+            var leftOr = new OrNode();
+            leftOr.AddNode(value1);
+            leftOr.AddNode(value2);
 
-            var leafList = new List<ILeaf>();
-            leafList.Add(leaf);
-            leafList.Add(leaf2);
+            var value3 = new ValueNode() { ValidationValue = "This is a test", Evaluation = "a.ValueB == b" };
+            var value4 = new ValueNode() { ValidationValue = "Whoopsie", Evaluation = "a.ValueB == b" };
 
-            var trunk = new Trunk() {Leafs = leafList };
-            _validator.AddTrunk(trunk);
-            var returnValue = _validator.Validate(_testObj);
+            var rightOr = new OrNode();
+            rightOr.AddNode(value3);
+            rightOr.AddNode(value4);
+
+            _node.AddNode(leftOr);
+            _node.AddNode(rightOr);
+
+            var returnValue = _node.Validate(_testObj);
 
             Assert.IsTrue(returnValue);
         }
