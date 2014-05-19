@@ -14,17 +14,5 @@ namespace DotValTree
         /// <param name="obj">The object to be validated</param>
         /// <returns>True if the object is valid, otherwise false</returns>
         bool Validate(object obj);
-
-        /// <summary>
-        /// Adds a validation trunk to the validator
-        /// </summary>
-        /// <param name="trunk">The trunk to add</param>
-        void AddTrunk(ITrunk trunk);
-
-        /// <summary>
-        /// Removes a validation trunk from the validator
-        /// </summary>
-        /// <param name="trunk">The trunk to remove</param>
-        void RemoveTrunk(ITrunk trunk);
     }
 }
