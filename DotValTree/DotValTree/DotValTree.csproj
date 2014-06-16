@@ -45,7 +45,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Events\ValidationEventArgs.cs" />
     <Compile Include="IValidation.cs" />
     <Compile Include="Nodes\AbstractLogicalNode.cs" />
     <Compile Include="Nodes\AndNode.cs" />
