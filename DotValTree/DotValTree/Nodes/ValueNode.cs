@@ -9,17 +9,55 @@ namespace DotValTree.Nodes
 {
     public class ValueNode : INode
     {
-        public object ValidationValue { get; set; }
+        public object ValidationValue 
+        {
+            get { return _validationValue; }
+            set 
+            {
+                _recompileExpression = true;
+                _validationValue = value;
+            }
+        }
         public string Evaluation { get; set; }
+
+        private object _validationValue;
+
+        private CompiledExpression _expr;
+        private TypeRegistry _registry;
+
+        private bool _recompileExpression = true;
+        private Type _lastType;
 
         public bool Validate(object obj)
         {
-            var registry = new TypeRegistry();
-            registry.RegisterSymbol("a", obj);
-            registry.RegisterSymbol("b", ValidationValue);
+            if(_lastType != obj.GetType())
+                registerSymbols(obj);
 
-            var expr = new CompiledExpression(Evaluation) { TypeRegistry = registry };
-            return (Boolean) expr.Eval();
+            if (_expr == null || _recompileExpression == true)
+            {
+                registerSymbols(obj);
+                recompileExpression();
+            }
+            return (Boolean) _expr.Eval();
         }
+
+        #region PRIVATE METHODS
+
+        private void recompileExpression()
+        {
+            _expr = new CompiledExpression(Evaluation) { TypeRegistry = _registry };
+            _recompileExpression = false;
+        }
+
+        private void registerSymbols(object obj)
+        {
+            _registry = new TypeRegistry();
+            
+            _registry.RegisterSymbol("a", obj);
+            _registry.RegisterSymbol("b", ValidationValue);
+
+            _lastType = obj.GetType();
+        }
+        #endregion
     }
 }
