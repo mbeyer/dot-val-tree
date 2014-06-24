@@ -7,6 +7,7 @@ using NUnit.Framework;
 using DotValTree;
 using DotEvalTreeTest.Helper;
 using DotValTree.Nodes;
+using DotValTree.Persistence;
 
 namespace DotEvalTreeTest
 {
@@ -14,6 +15,10 @@ namespace DotEvalTreeTest
     public class ValidatorTest
     {
         private AbstractLogicalNode _node;
+        private ValueNode value1;
+        private ValueNode value2;
+
+        private IAbstractNodeStorageProvider _provider;
 
         private ComplexTestObject _testObj;
 
@@ -22,19 +27,9 @@ namespace DotEvalTreeTest
         {
             _node = new AndNode();
             _testObj = new ComplexTestObject { ValueA = 1, ValueB = "This is a test" };
-        }
 
-        [TearDown]
-        public void TearDown()
-        {
-
-        }
-
-        [Test]
-        public void ValidateSuccessful()
-        {
-            var value1 = new ValueNode() { ValidationValue = 5, Evaluation = "a.ValueA < b" };
-            var value2 = new ValueNode() { ValidationValue = 0, Evaluation = "a.ValueA > b" };
+            value1 = new ValueNode() { ValidationValue = 5, Evaluation = "a.ValueA < b" };
+            value2 = new ValueNode() { ValidationValue = 0, Evaluation = "a.ValueA > b" };
 
             var leftOr = new OrNode();
             leftOr.AddNode(value1);
@@ -50,6 +45,18 @@ namespace DotEvalTreeTest
             _node.AddNode(leftOr);
             _node.AddNode(rightOr);
 
+            _provider = new ETNodeStorageProvider();
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+
+        }
+
+        [Test]
+        public void ValidateSuccessful()
+        {
             var returnValue = _node.Validate(_testObj);
             Assert.IsTrue(returnValue);
 
@@ -63,23 +70,6 @@ namespace DotEvalTreeTest
         [Test]
         public void ValidationPerformanceBelow30MicrosecondsSuccessful()
         {
-            var value1 = new ValueNode() { ValidationValue = 5, Evaluation = "a.ValueA < b" };
-            var value2 = new ValueNode() { ValidationValue = 0, Evaluation = "a.ValueA > b" };
-
-            var leftOr = new OrNode();
-            leftOr.AddNode(value1);
-            leftOr.AddNode(value2);
-
-            var value3 = new ValueNode() { ValidationValue = "This is a test", Evaluation = "a.ValueB == b" };
-            var value4 = new ValueNode() { ValidationValue = "Whoopsie", Evaluation = "a.ValueB == b" };
-
-            var rightOr = new OrNode();
-            rightOr.AddNode(value3);
-            rightOr.AddNode(value4);
-
-            _node.AddNode(leftOr);
-            _node.AddNode(rightOr);
-
             // first validation will create objects, not worth checking
             var returnValue = _node.Validate(_testObj);
 
@@ -92,6 +82,16 @@ namespace DotEvalTreeTest
             System.Console.WriteLine(watch.Elapsed.TotalMilliseconds);
 
             Assert.IsTrue(returnValue);
+        }
+
+        [Test]
+        public void SaveValidation()
+        {
+
+            var returnValue = _provider.SaveNode(_node);
+
+            Assert.AreNotEqual(0, returnValue.NodeId);
+
         }
     }
 }

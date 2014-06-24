@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DotValTree.Nodes
 {
-    public class ValueNode : INode
+    public class ValueNode : AbstractNode
     {
         public object ValidationValue 
         {
@@ -18,6 +18,7 @@ namespace DotValTree.Nodes
                 _validationValue = value;
             }
         }
+        public string ValidationType { get; set; }
         public string Evaluation { get; set; }
 
         private object _validationValue;
@@ -28,7 +29,7 @@ namespace DotValTree.Nodes
         private bool _recompileExpression = true;
         private Type _lastType;
 
-        public bool Validate(object obj)
+        public override bool Validate(object obj)
         {
             if(_lastType != obj.GetType())
                 registerSymbols(obj);

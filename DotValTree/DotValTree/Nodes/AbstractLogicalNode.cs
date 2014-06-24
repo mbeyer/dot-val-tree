@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DotValTree.Nodes
 {
-    public abstract class AbstractLogicalNode
+    public abstract class AbstractLogicalNode : AbstractNode
     {
         public ICollection<INode> ChildNodes;
 
@@ -24,7 +24,5 @@ namespace DotValTree.Nodes
         {
             ChildNodes.Remove(node);
         }
-
-        public abstract bool Validate(object obj);
     }
 }
