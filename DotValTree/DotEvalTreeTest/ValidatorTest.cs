@@ -34,15 +34,15 @@ namespace DotEvalTreeTest
             _node = new AndNode();
             _testObj = new ComplexTestObject { ValueA = 1, ValueB = "This is a test" };
 
-            value1 = new ValueNode() { ValidationValue = 5, Evaluation = "a.ValueA < b" };
-            value2 = new ValueNode() { ValidationValue = 0, Evaluation = "a.ValueA > b" };
+            value1 = new ValueNode() { ValidationValue = 5, Evaluation = "Entity.ValueA < ValidationValue" };
+            value2 = new ValueNode() { ValidationValue = 0, Evaluation = "Entity.ValueA > ValidationValue" };
 
             var leftOr = new OrNode();
             leftOr.AddNode(value1);
             leftOr.AddNode(value2);
 
-            var value3 = new ValueNode() { ValidationValue = "This is a test", Evaluation = "a.ValueB == b" };
-            var value4 = new ValueNode() { ValidationValue = "Whoopsie", Evaluation = "a.ValueB == b" };
+            var value3 = new ValueNode() { ValidationValue = "This is a test", Evaluation = "Entity.ValueB == ValidationValue" };
+            var value4 = new ValueNode() { ValidationValue = "Whoopsie", Evaluation = "Entity.ValueB == ValidationValue" };
 
             var rightOr = new OrNode();
             rightOr.AddNode(value3);

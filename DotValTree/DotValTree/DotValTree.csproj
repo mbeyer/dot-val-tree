@@ -55,7 +55,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IValidation.cs" />
     <Compile Include="Nodes\Node.cs" />
     <Compile Include="Provider\XML\Persistence\EFNodeStorageProvider\EFNodeStorageProvider.cs" />
     <Compile Include="Provider\XML\Persistence\EFNodeStorageProvider\Mapper\XmlValidationTreeMapper.cs" />

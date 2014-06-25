@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace DotValTree.Provider.XML
 {
+    /// <summary>
+    /// Persist entities using the Entity Framework
+    /// </summary>
     public class EFNodeStorageProvider : IXmlStorageProvider
     {
         public XmlValidationTree GetXmlTree(int id)

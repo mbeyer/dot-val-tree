@@ -8,6 +8,16 @@ using System.Xml.Serialization;
 
 namespace DotValTree.Nodes
 {
+    /// <summary>
+    /// This node is the core of the validation process, comparing properties of objects
+    /// with a given object. An Evaluation has to be written as a string and can include all
+    /// logical operators. Example:
+    /// 
+    /// "Entity.ValueA = ValidationValue"
+    /// "Entity.ValueB <= ValidationValue"
+    /// 
+    /// See http://csharpeval.codeplex.com/ for further documentation for validation.
+    /// </summary>
     [XmlType("ValueNode")]
     public class ValueNode : Node
     {
@@ -55,8 +65,8 @@ namespace DotValTree.Nodes
         {
             _registry = new TypeRegistry();
             
-            _registry.RegisterSymbol("a", obj);
-            _registry.RegisterSymbol("b", ValidationValue);
+            _registry.RegisterSymbol("Entity", obj);
+            _registry.RegisterSymbol("ValidationValue", ValidationValue);
 
             _lastType = obj.GetType();
         }

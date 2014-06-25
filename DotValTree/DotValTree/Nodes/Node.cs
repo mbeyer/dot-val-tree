@@ -7,6 +7,9 @@ using System.Xml.Serialization;
 
 namespace DotValTree.Nodes
 {
+    /// <summary>
+    /// The most basic class for validation
+    /// </summary>
     [XmlInclude(typeof(ValueNode)), XmlInclude(typeof(OrNode)), XmlInclude(typeof(AndNode))]
     public abstract class Node : INode
     {

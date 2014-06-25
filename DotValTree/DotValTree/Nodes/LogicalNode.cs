@@ -7,7 +7,11 @@ using System.Xml.Serialization;
 
 namespace DotValTree.Nodes
 {
-    
+    /// <summary>
+    /// Logical nodes are nodes that dictate a certain behavior for their Validate method.
+    /// Logical nodes hold child nodes which can either be other logical nodes or value nodes.
+    /// See derived classes for examples.
+    /// </summary>
     public abstract class LogicalNode : Node
     {
         public List<Node> ChildNodes;
