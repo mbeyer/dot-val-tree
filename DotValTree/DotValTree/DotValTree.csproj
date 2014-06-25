@@ -33,11 +33,21 @@
     <Reference Include="Antlr3.Runtime">
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="ExpressionEvaluator">
       <HintPath>..\packages\ExpressionEvaluator.2.0.1.0\lib\net40\ExpressionEvaluator.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,17 +55,45 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IValidation.cs" />
-    <Compile Include="Nodes\AbstractLogicalNode.cs" />
+    <Compile Include="Nodes\Node.cs" />
+    <Compile Include="Provider\XML\Persistence\EFNodeStorageProvider\EFNodeStorageProvider.cs" />
+    <Compile Include="Provider\XML\Persistence\EFNodeStorageProvider\Mapper\XmlValidationTreeMapper.cs" />
+    <Compile Include="Provider\XML\Persistence\EFNodeStorageProvider\Migrations\201406250850322_First.cs" />
+    <Compile Include="Provider\XML\Persistence\EFNodeStorageProvider\Migrations\201406250850322_First.Designer.cs">
+      <DependentUpon>201406250850322_First.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Provider\XML\Persistence\EFNodeStorageProvider\Migrations\201406251028053_RenameDescription.cs" />
+    <Compile Include="Provider\XML\Persistence\EFNodeStorageProvider\Migrations\201406251028053_RenameDescription.Designer.cs">
+      <DependentUpon>201406251028053_RenameDescription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Provider\XML\Persistence\EFNodeStorageProvider\Migrations\Configuration.cs" />
+    <Compile Include="Nodes\LogicalNode.cs" />
     <Compile Include="Nodes\AndNode.cs" />
-    <Compile Include="Nodes\INode.cs" />
     <Compile Include="Nodes\OrNode.cs" />
     <Compile Include="Nodes\ValueNode.cs" />
+    <Compile Include="Provider\XML\Persistence\EFNodeStorageProvider\Entity\XmlValidationTree.cs" />
+    <Compile Include="Provider\XML\Persistence\EFNodeStorageProvider\TreeDataContext.cs" />
+    <Compile Include="Provider\XML\Persistence\IXmlStorageProvider.cs" />
+    <Compile Include="Provider\XML\XmlTreeProvider.cs" />
+    <Compile Include="Provider\IValidatorProvider.cs" />
     <Compile Include="Validator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
+    <None Include="App.config.tpl" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Provider\XML\Persistence\EFNodeStorageProvider\Migrations\201406250850322_First.resx">
+      <DependentUpon>201406250850322_First.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Provider\XML\Persistence\EFNodeStorageProvider\Migrations\201406251028053_RenameDescription.resx">
+      <DependentUpon>201406251028053_RenameDescription.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

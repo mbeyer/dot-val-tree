@@ -3,22 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace DotValTree.Nodes
 {
-    public class OrNode : AbstractLogicalNode, INode
+    /// <summary>
+    /// This class dictates that only one child nodes needs to return true for the Validate method to return true too.
+    /// </summary>
+    [XmlType("OrNode")]
+    public class OrNode : LogicalNode
     {
 
         public override bool Validate(object obj)
         {
-            bool isValid = false;
             foreach (var element in ChildNodes)
             {
                 if (element.Validate(obj))
-                    isValid = true;
+                    return true;
             }
-
-            return isValid;
+            return false;
         }
     }
 }
