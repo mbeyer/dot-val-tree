@@ -13,7 +13,7 @@ namespace DotValTree
 
         public string Description { get; set; }
 
-        public AbstractNode RootNode { get; set; }
+        public Node RootNode { get; set; }
 
         public bool Validate(object obj)
         {

@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 namespace DotValTree.Nodes
 {
     [XmlInclude(typeof(ValueNode)), XmlInclude(typeof(OrNode)), XmlInclude(typeof(AndNode))]
-    public abstract class AbstractNode : INode
+    public abstract class Node : INode
     {
         public abstract bool Validate(object obj);
     }

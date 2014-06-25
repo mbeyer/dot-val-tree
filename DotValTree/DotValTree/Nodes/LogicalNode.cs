@@ -8,21 +8,21 @@ using System.Xml.Serialization;
 namespace DotValTree.Nodes
 {
     
-    public abstract class AbstractLogicalNode : AbstractNode
+    public abstract class LogicalNode : Node
     {
-        public List<AbstractNode> ChildNodes;
+        public List<Node> ChildNodes;
 
-        public AbstractLogicalNode()
+        public LogicalNode()
         {
-            ChildNodes = new List<AbstractNode>();
+            ChildNodes = new List<Node>();
         }
 
-        public void AddNode(AbstractNode node)
+        public void AddNode(Node node)
         {
             ChildNodes.Add(node);
         }
 
-        public void RemoveNode(AbstractNode node)
+        public void RemoveNode(Node node)
         {
             ChildNodes.Remove(node);
         }

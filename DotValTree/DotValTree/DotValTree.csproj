@@ -56,7 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IValidation.cs" />
-    <Compile Include="Nodes\AbstractNode.cs" />
+    <Compile Include="Nodes\Node.cs" />
     <Compile Include="Provider\XML\Persistence\EFNodeStorageProvider\EFNodeStorageProvider.cs" />
     <Compile Include="Provider\XML\Persistence\EFNodeStorageProvider\Mapper\XmlValidationTreeMapper.cs" />
     <Compile Include="Provider\XML\Persistence\EFNodeStorageProvider\Migrations\201406250850322_First.cs" />
@@ -68,7 +68,7 @@
       <DependentUpon>201406251028053_RenameDescription.cs</DependentUpon>
     </Compile>
     <Compile Include="Provider\XML\Persistence\EFNodeStorageProvider\Migrations\Configuration.cs" />
-    <Compile Include="Nodes\AbstractLogicalNode.cs" />
+    <Compile Include="Nodes\LogicalNode.cs" />
     <Compile Include="Nodes\AndNode.cs" />
     <Compile Include="Nodes\INode.cs" />
     <Compile Include="Nodes\OrNode.cs" />

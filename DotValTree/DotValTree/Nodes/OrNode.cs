@@ -9,7 +9,7 @@ namespace DotValTree.Nodes
 {
 
     [XmlType("OrNode")]
-    public class OrNode : AbstractLogicalNode, INode
+    public class OrNode : LogicalNode, INode
     {
 
         public override bool Validate(object obj)

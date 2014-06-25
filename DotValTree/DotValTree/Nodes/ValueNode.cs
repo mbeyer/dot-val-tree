@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 namespace DotValTree.Nodes
 {
     [XmlType("ValueNode")]
-    public class ValueNode : AbstractNode
+    public class ValueNode : Node
     {
         public object ValidationValue 
         {

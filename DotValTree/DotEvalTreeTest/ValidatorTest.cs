@@ -18,7 +18,7 @@ namespace DotEvalTreeTest
     public class ValidatorTest
     {
         private Validator _validator;
-        private AbstractLogicalNode _node;
+        private LogicalNode _node;
         private ValueNode value1;
         private ValueNode value2;
 

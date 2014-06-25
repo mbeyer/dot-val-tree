@@ -26,10 +26,10 @@ namespace DotValTree.Provider
             XmlSerializer serializer;
             var xmlTree = _provider.GetXmlTree(id);
 
-            serializer = new XmlSerializer(typeof(AbstractNode));
+            serializer = new XmlSerializer(typeof(Node));
 
             var stringReader = new StringReader(xmlTree.Tree);
-            var returnNode = (AbstractNode)serializer.Deserialize(stringReader);
+            var returnNode = (Node)serializer.Deserialize(stringReader);
 
             var validator = new Validator() { Id = xmlTree.ValidationId, Description = xmlTree.Description, RootNode = returnNode };
 
@@ -38,7 +38,7 @@ namespace DotValTree.Provider
 
         public Validator SaveValidator(Validator validator)
         {
-            var x = new XmlSerializer(typeof(AbstractNode));
+            var x = new XmlSerializer(typeof(Node));
             var stringWriter = new StringWriter();
 
             x.Serialize(stringWriter, validator.RootNode);
