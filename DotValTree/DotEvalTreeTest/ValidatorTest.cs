@@ -7,7 +7,10 @@ using NUnit.Framework;
 using DotValTree;
 using DotEvalTreeTest.Helper;
 using DotValTree.Nodes;
-using DotValTree.Persistence;
+using System.Xml;
+using System.IO;
+using DotValTree.Provider;
+using DotValTree.Provider.XML;
 
 namespace DotEvalTreeTest
 {
@@ -18,7 +21,8 @@ namespace DotEvalTreeTest
         private ValueNode value1;
         private ValueNode value2;
 
-        private IAbstractNodeStorageProvider _provider;
+        private ITreeProvider _provider;
+        private IXmlStorageProvider _storage;
 
         private ComplexTestObject _testObj;
 
@@ -45,7 +49,8 @@ namespace DotEvalTreeTest
             _node.AddNode(leftOr);
             _node.AddNode(rightOr);
 
-            _provider = new ETNodeStorageProvider();
+            _storage = new EFNodeStorageProvider();
+            _provider = new XmlNodeProvider(_storage);
         }
 
         [TearDown]
@@ -87,11 +92,9 @@ namespace DotEvalTreeTest
         [Test]
         public void SaveValidation()
         {
-
-            var returnValue = _provider.SaveNode(_node);
-
-            Assert.AreNotEqual(0, returnValue.NodeId);
-
+            var node = _provider.SaveTree(_node);
+            Assert.IsTrue(node.Validate(_testObj));
+            
         }
     }
 }

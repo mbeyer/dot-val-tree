@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace DotValTree.Nodes
 {
+    [XmlType("ValueNode")]
     public class ValueNode : AbstractNode
     {
         public object ValidationValue 
@@ -18,7 +20,6 @@ namespace DotValTree.Nodes
                 _validationValue = value;
             }
         }
-        public string ValidationType { get; set; }
         public string Evaluation { get; set; }
 
         private object _validationValue;

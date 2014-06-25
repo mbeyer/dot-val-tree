@@ -57,35 +57,29 @@
   <ItemGroup>
     <Compile Include="IValidation.cs" />
     <Compile Include="Nodes\AbstractNode.cs" />
-    <Compile Include="Persistence\EntityFramework\Mapper\NodeMapper.cs" />
-    <Compile Include="Persistence\EntityFramework\Migrations\201406241002352_First.cs" />
-    <Compile Include="Persistence\EntityFramework\Migrations\201406241002352_First.Designer.cs">
-      <DependentUpon>201406241002352_First.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Persistence\EntityFramework\Migrations\Configuration.cs" />
+    <Compile Include="Provider\XML\Persistence\EFNodeStorageProvider\EFNodeStorageProvider.cs" />
+    <Compile Include="Provider\XML\Persistence\EFNodeStorageProvider\Migrations\Configuration.cs" />
     <Compile Include="Nodes\AbstractLogicalNode.cs" />
     <Compile Include="Nodes\AndNode.cs" />
     <Compile Include="Nodes\INode.cs" />
     <Compile Include="Nodes\OrNode.cs" />
     <Compile Include="Nodes\ValueNode.cs" />
-    <Compile Include="Persistence\EntityFramework\ETNodeStorageProvider.cs" />
-    <Compile Include="Persistence\EntityFramework\NodeDataContext.cs" />
-    <Compile Include="Persistence\IAbstractNodeStorageProvider.cs" />
+    <Compile Include="Provider\XML\Persistence\EFNodeStorageProvider\Entity\XmlValidationTree.cs" />
+    <Compile Include="Provider\XML\Persistence\EFNodeStorageProvider\TreeDataContext.cs" />
+    <Compile Include="Provider\XML\Persistence\IXmlStorageProvider.cs" />
+    <Compile Include="Provider\XML\XmlTreeProvider.cs" />
+    <Compile Include="Provider\ITreeProvider.cs" />
     <Compile Include="Validator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="App.config.tpl" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Persistence\EntityFramework\Migrations\201406241002352_First.resx">
-      <DependentUpon>201406241002352_First.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -5,27 +5,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DotValTree.Persistence
+namespace DotValTree.Provider.XML
 {
-    public interface IAbstractNodeStorageProvider
+    public interface IXmlStorageProvider
     {
         /// <summary>
         /// 
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        AbstractNode GetNode(int id);
+        XmlValidationTree GetXmlTree(int id);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="node"></param>
-        AbstractNode SaveNode(AbstractNode node);
+        XmlValidationTree SaveXmlTree(XmlValidationTree node);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="id"></param>
-        void DeleteNode(int id);
+        void DeleteXmlTree(int id);
     }
 }

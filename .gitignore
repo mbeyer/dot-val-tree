@@ -157,3 +157,5 @@ $RECYCLE.BIN/
 DotValTree/packages/
 DotValTree/DotEvalTreeTest/DotEvalTreeTest.csproj
 DotValTree/DotValTree/DotValTree.csproj
+DotValTree/DotEvalTreeTest/App.config
+DotValTree/DotValTree/App.config
