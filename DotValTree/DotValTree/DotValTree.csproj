@@ -69,7 +69,6 @@
     <Compile Include="Provider\XML\Persistence\EFNodeStorageProvider\Migrations\Configuration.cs" />
     <Compile Include="Nodes\LogicalNode.cs" />
     <Compile Include="Nodes\AndNode.cs" />
-    <Compile Include="Nodes\INode.cs" />
     <Compile Include="Nodes\OrNode.cs" />
     <Compile Include="Nodes\ValueNode.cs" />
     <Compile Include="Provider\XML\Persistence\EFNodeStorageProvider\Entity\XmlValidationTree.cs" />

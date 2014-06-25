@@ -11,7 +11,7 @@ namespace DotValTree.Nodes
     /// This class dictates that all child nodes return true, in order for the Validate method to return true too.
     /// </summary>
     [XmlType("AndNode")]
-    public class AndNode : LogicalNode, INode
+    public class AndNode : LogicalNode
     {
 
         public override bool Validate(object obj)

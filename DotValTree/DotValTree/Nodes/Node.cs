@@ -11,7 +11,7 @@ namespace DotValTree.Nodes
     /// The most basic class for validation
     /// </summary>
     [XmlInclude(typeof(ValueNode)), XmlInclude(typeof(OrNode)), XmlInclude(typeof(AndNode))]
-    public abstract class Node : INode
+    public abstract class Node
     {
         public abstract bool Validate(object obj);
     }
