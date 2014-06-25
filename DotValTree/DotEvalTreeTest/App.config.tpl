@@ -9,6 +9,6 @@
     
   </entityFramework>
   <connectionStrings>
-    <add name="NodeModel" connectionString="Data Source=BEYER-MARCEL-PC\SQLEXPRESS;Initial Catalog=DotValTree.Validators;Integrated Security=true;" providerName="System.Data.SqlClient" />
+    <add name="ValidationModel" connectionString="Data Source=BEYER-MARCEL-PC\SQLEXPRESS;Initial Catalog=DotValTree.Validators;Integrated Security=true;" providerName="System.Data.SqlClient" />
   </connectionStrings>
 </configuration>

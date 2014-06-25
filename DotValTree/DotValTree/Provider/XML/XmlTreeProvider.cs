@@ -25,10 +25,12 @@ namespace DotValTree.Provider
         {
             var xmlTree = _provider.GetXmlTree(id);
 
-            var serializer = new XmlSerializer(typeof(AbstractLogicalNode));
+            var serializer = new XmlSerializer(typeof(AbstractNode));
 
             var stringReader = new StringReader(xmlTree.Tree);
             var returnNode = (AbstractNode) serializer.Deserialize(stringReader);
+
+            returnNode.NodeId = xmlTree.ValidationId;
 
             return returnNode;
         }
@@ -44,7 +46,9 @@ namespace DotValTree.Provider
 
             var xmlTree = new XmlValidationTree();
             xmlTree.Tree = stringBuffer;
-            _provider.SaveXmlTree(xmlTree);
+            xmlTree = _provider.SaveXmlTree(xmlTree);
+
+            node.NodeId = xmlTree.ValidationId;
 
             return node;
         }

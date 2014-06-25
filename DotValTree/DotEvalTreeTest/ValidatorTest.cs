@@ -94,7 +94,7 @@ namespace DotEvalTreeTest
         {
             var node = _provider.SaveTree(_node);
             Assert.IsTrue(node.Validate(_testObj));
-            
+            var getNode = _provider.GetTree(node.NodeId);
         }
     }
 }
