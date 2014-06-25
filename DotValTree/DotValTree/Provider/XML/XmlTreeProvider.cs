@@ -12,7 +12,7 @@ using System.Xml.Serialization;
 
 namespace DotValTree.Provider
 {
-    public class XmlNodeProvider : ITreeProvider
+    public class XmlNodeProvider : IValidatorProvider
     {
         IXmlStorageProvider _provider;
 
@@ -21,39 +21,42 @@ namespace DotValTree.Provider
             _provider = storageProvider;
         }
 
-        public AbstractNode GetTree(int id)
+        public Validator GetValidator(int id)
         {
+            XmlSerializer serializer;
             var xmlTree = _provider.GetXmlTree(id);
 
-            var serializer = new XmlSerializer(typeof(AbstractNode));
+            serializer = new XmlSerializer(typeof(AbstractNode));
 
             var stringReader = new StringReader(xmlTree.Tree);
-            var returnNode = (AbstractNode) serializer.Deserialize(stringReader);
+            var returnNode = (AbstractNode)serializer.Deserialize(stringReader);
 
-            returnNode.NodeId = xmlTree.ValidationId;
+            var validator = new Validator() { Id = xmlTree.ValidationId, Description = xmlTree.Description, RootNode = returnNode };
 
-            return returnNode;
+            return validator;
         }
 
-        public AbstractNode SaveTree(AbstractNode node)
+        public Validator SaveValidator(Validator validator)
         {
-            var x = new XmlSerializer(node.GetType());
-
+            var x = new XmlSerializer(typeof(AbstractNode));
             var stringWriter = new StringWriter();
 
-            x.Serialize(stringWriter, node);
+            x.Serialize(stringWriter, validator.RootNode);
             var stringBuffer = stringWriter.ToString();
 
             var xmlTree = new XmlValidationTree();
             xmlTree.Tree = stringBuffer;
+            xmlTree.Description = validator.Description;
+            xmlTree.ValidationId = validator.Id;
+
             xmlTree = _provider.SaveXmlTree(xmlTree);
 
-            node.NodeId = xmlTree.ValidationId;
+            validator.Id = xmlTree.ValidationId;
 
-            return node;
+            return validator;
         }
 
-        public void DeleteTree(int id)
+        public void DeleteValidator(int id)
         {
             _provider.DeleteXmlTree(id);
         }

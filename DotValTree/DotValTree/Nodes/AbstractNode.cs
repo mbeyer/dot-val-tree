@@ -7,13 +7,9 @@ using System.Xml.Serialization;
 
 namespace DotValTree.Nodes
 {
-    [XmlInclude(typeof(ValueNode))]
+    [XmlInclude(typeof(ValueNode)), XmlInclude(typeof(OrNode)), XmlInclude(typeof(AndNode))]
     public abstract class AbstractNode : INode
     {
-        // Used for persistence reference to identify a root node
-        [XmlIgnore]
-        public int NodeId { get; set; }
-
         public abstract bool Validate(object obj);
     }
 }

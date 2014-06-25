@@ -7,25 +7,25 @@ using System.Threading.Tasks;
 
 namespace DotValTree.Provider
 {
-    public interface ITreeProvider
+    public interface IValidatorProvider
     {
         /// <summary>
         /// 
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        AbstractNode GetTree(int id);
+        Validator GetValidator(int id);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="node"></param>
-        AbstractNode SaveTree(AbstractNode node);
+        Validator SaveValidator(Validator node);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="id"></param>
-        void DeleteTree(int id);
+        void DeleteValidator(int id);
     }
 }

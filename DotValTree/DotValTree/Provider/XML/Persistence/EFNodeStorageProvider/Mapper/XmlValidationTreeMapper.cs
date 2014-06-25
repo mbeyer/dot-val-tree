@@ -12,7 +12,7 @@ namespace DotValTree.Provider.XML
         {
             dbTree.ValidationId = tree.ValidationId;
             dbTree.Tree = tree.Tree;
-            dbTree.Notes = tree.Notes;
+            dbTree.Description = tree.Description;
         }
     }
 }

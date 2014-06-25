@@ -9,7 +9,7 @@ namespace DotValTree.Provider.XML
     public class XmlValidationTree
     {
         public int ValidationId { get; set; }
-        public String Notes { get; set; }
+        public String Description { get; set; }
         public String Tree { get; set; }
     }
 }

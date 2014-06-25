@@ -63,6 +63,10 @@
     <Compile Include="Provider\XML\Persistence\EFNodeStorageProvider\Migrations\201406250850322_First.Designer.cs">
       <DependentUpon>201406250850322_First.cs</DependentUpon>
     </Compile>
+    <Compile Include="Provider\XML\Persistence\EFNodeStorageProvider\Migrations\201406251028053_RenameDescription.cs" />
+    <Compile Include="Provider\XML\Persistence\EFNodeStorageProvider\Migrations\201406251028053_RenameDescription.Designer.cs">
+      <DependentUpon>201406251028053_RenameDescription.cs</DependentUpon>
+    </Compile>
     <Compile Include="Provider\XML\Persistence\EFNodeStorageProvider\Migrations\Configuration.cs" />
     <Compile Include="Nodes\AbstractLogicalNode.cs" />
     <Compile Include="Nodes\AndNode.cs" />
@@ -73,7 +77,7 @@
     <Compile Include="Provider\XML\Persistence\EFNodeStorageProvider\TreeDataContext.cs" />
     <Compile Include="Provider\XML\Persistence\IXmlStorageProvider.cs" />
     <Compile Include="Provider\XML\XmlTreeProvider.cs" />
-    <Compile Include="Provider\ITreeProvider.cs" />
+    <Compile Include="Provider\IValidatorProvider.cs" />
     <Compile Include="Validator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -85,6 +89,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Provider\XML\Persistence\EFNodeStorageProvider\Migrations\201406250850322_First.resx">
       <DependentUpon>201406250850322_First.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Provider\XML\Persistence\EFNodeStorageProvider\Migrations\201406251028053_RenameDescription.resx">
+      <DependentUpon>201406251028053_RenameDescription.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 
 namespace DotValTree.Nodes
 {
-    [XmlInclude(typeof(OrNode)), XmlInclude(typeof(AndNode))]
+    
     public abstract class AbstractLogicalNode : AbstractNode
     {
         public List<AbstractNode> ChildNodes;

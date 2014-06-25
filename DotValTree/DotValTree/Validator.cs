@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace DotValTree
 {
-    public class Validator : IValidation
+    public class Validator
     {
         public int Id { get; set; }
 
-        public string Name { get; set; }
+        public string Description { get; set; }
 
-        public AbstractLogicalNode RootNode { get; set; }
+        public AbstractNode RootNode { get; set; }
 
         public bool Validate(object obj)
         {
