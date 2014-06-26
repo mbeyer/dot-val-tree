@@ -28,13 +28,14 @@ namespace DotValTree.Provider.XML
             using(var context = new TreeDataContext())
             {
                 var dbTree = GetXmlTree(tree.ValidationId) ?? new XmlValidationTree();
+                if (dbTree != null)
+                    context.ValidationTree.Attach(dbTree);
 
                 dbTree.Map(tree);
 
                 if (dbTree.ValidationId == 0)
                     context.ValidationTree.Add(dbTree);
-                else 
-                    context.Entry(dbTree).State = System.Data.Entity.EntityState.Modified;
+                
 
                 context.SaveChanges();
 
@@ -47,9 +48,15 @@ namespace DotValTree.Provider.XML
             using (var context = new TreeDataContext())
             {
                 var dbTree = GetXmlTree(id);
+                if(dbTree == null)
+                    return;
+
+                context.ValidationTree.Attach(dbTree);
 
                 if (dbTree != null)
                     context.ValidationTree.Remove(dbTree);
+
+                context.SaveChanges();
             }
         }
     }
