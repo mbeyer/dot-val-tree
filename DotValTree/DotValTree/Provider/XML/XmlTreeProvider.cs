@@ -25,6 +25,8 @@ namespace DotValTree.Provider
         {
             XmlSerializer serializer;
             var xmlTree = _provider.GetXmlTree(id);
+            if (xmlTree == null)
+                return null;
 
             serializer = new XmlSerializer(typeof(Node));
 
