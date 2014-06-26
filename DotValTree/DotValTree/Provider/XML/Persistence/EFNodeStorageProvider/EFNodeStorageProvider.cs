@@ -29,10 +29,12 @@ namespace DotValTree.Provider.XML
             {
                 var dbTree = GetXmlTree(tree.ValidationId) ?? new XmlValidationTree();
 
+                dbTree.Map(tree);
+
                 if (dbTree.ValidationId == 0)
                     context.ValidationTree.Add(dbTree);
-
-                dbTree.Map(tree);
+                else 
+                    context.Entry(dbTree).State = System.Data.Entity.EntityState.Modified;
 
                 context.SaveChanges();
 

@@ -58,13 +58,9 @@
     <Compile Include="Nodes\Node.cs" />
     <Compile Include="Provider\XML\Persistence\EFNodeStorageProvider\EFNodeStorageProvider.cs" />
     <Compile Include="Provider\XML\Persistence\EFNodeStorageProvider\Mapper\XmlValidationTreeMapper.cs" />
-    <Compile Include="Provider\XML\Persistence\EFNodeStorageProvider\Migrations\201406250850322_First.cs" />
-    <Compile Include="Provider\XML\Persistence\EFNodeStorageProvider\Migrations\201406250850322_First.Designer.cs">
-      <DependentUpon>201406250850322_First.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Provider\XML\Persistence\EFNodeStorageProvider\Migrations\201406251028053_RenameDescription.cs" />
-    <Compile Include="Provider\XML\Persistence\EFNodeStorageProvider\Migrations\201406251028053_RenameDescription.Designer.cs">
-      <DependentUpon>201406251028053_RenameDescription.cs</DependentUpon>
+    <Compile Include="Provider\XML\Persistence\EFNodeStorageProvider\Migrations\201406251150330_Initial.cs" />
+    <Compile Include="Provider\XML\Persistence\EFNodeStorageProvider\Migrations\201406251150330_Initial.Designer.cs">
+      <DependentUpon>201406251150330_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Provider\XML\Persistence\EFNodeStorageProvider\Migrations\Configuration.cs" />
     <Compile Include="Nodes\LogicalNode.cs" />
@@ -85,15 +81,12 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Provider\XML\Persistence\EFNodeStorageProvider\Migrations\201406250850322_First.resx">
-      <DependentUpon>201406250850322_First.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Provider\XML\Persistence\EFNodeStorageProvider\Migrations\201406251028053_RenameDescription.resx">
-      <DependentUpon>201406251028053_RenameDescription.cs</DependentUpon>
-    </EmbeddedResource>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <EmbeddedResource Include="Provider\XML\Persistence\EFNodeStorageProvider\Migrations\201406251150330_Initial.resx">
+      <DependentUpon>201406251150330_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

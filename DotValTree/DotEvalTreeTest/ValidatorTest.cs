@@ -111,5 +111,23 @@ namespace DotEvalTreeTest
 
             Assert.AreEqual(tmpValidator.Id, tmpValidator2.Id);
         }
+
+        [Test]
+        public void UpdateDescriptionSuccessful()
+        {
+            var tmpValidator = _provider.SaveValidator(_validator);
+            tmpValidator.Description = "Changed in test";
+            _provider.SaveValidator(tmpValidator);
+            var tmpValidator2 = _provider.GetValidator(tmpValidator.Id);
+            
+            
+            Assert.AreEqual("Changed in test", tmpValidator2.Description);
+        }
+
+        [Test]
+        public void DeleteValidationTreeSuccessful()
+        {
+            _provider.DeleteValidator(_validator.Id);
+        }
     }
 }
