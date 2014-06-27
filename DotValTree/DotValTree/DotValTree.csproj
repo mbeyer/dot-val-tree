@@ -56,7 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Nodes\Node.cs" />
-    <Compile Include="Provider\XML\Persistence\EFNodeStorageProvider\EFNodeStorageProvider.cs" />
+    <Compile Include="Provider\XML\Persistence\EFNodeStorageProvider\XmlTreeStorageProvider.cs" />
     <Compile Include="Provider\XML\Persistence\EFNodeStorageProvider\Mapper\XmlValidationTreeMapper.cs" />
     <Compile Include="Provider\XML\Persistence\EFNodeStorageProvider\Migrations\201406251150330_Initial.cs" />
     <Compile Include="Provider\XML\Persistence\EFNodeStorageProvider\Migrations\201406251150330_Initial.Designer.cs">

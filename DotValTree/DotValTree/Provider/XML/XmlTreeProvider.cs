@@ -12,11 +12,11 @@ using System.Xml.Serialization;
 
 namespace DotValTree.Provider
 {
-    public class XmlNodeProvider : IValidatorProvider
+    public class XmlTreeProvider : IValidatorProvider
     {
         IXmlStorageProvider _provider;
 
-        public XmlNodeProvider(IXmlStorageProvider storageProvider)
+        public XmlTreeProvider(IXmlStorageProvider storageProvider)
         {
             _provider = storageProvider;
         }

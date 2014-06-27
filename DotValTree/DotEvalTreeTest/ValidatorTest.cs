@@ -54,8 +54,8 @@ namespace DotEvalTreeTest
             _validator.RootNode = _node;
             _validator.Description = "Test validation for ComplexTestObject";
 
-            _storage = new EFNodeStorageProvider();
-            _provider = new XmlNodeProvider(_storage);
+            _storage = new XmlTreeStorageProvider();
+            _provider = new XmlTreeProvider(_storage);
         }
 
         [TearDown]
@@ -127,7 +127,10 @@ namespace DotEvalTreeTest
         [Test]
         public void DeleteValidationTreeSuccessful()
         {
+            _provider.SaveValidator(_validator);
             _provider.DeleteValidator(_validator.Id);
+            var assertVal = _provider.GetValidator(_validator.Id);
+            Assert.IsNull(assertVal);
         }
     }
 }

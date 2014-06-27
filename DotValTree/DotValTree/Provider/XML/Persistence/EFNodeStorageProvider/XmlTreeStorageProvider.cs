@@ -9,7 +9,7 @@ namespace DotValTree.Provider.XML
     /// <summary>
     /// Persist entities using the Entity Framework
     /// </summary>
-    public class EFNodeStorageProvider : IXmlStorageProvider
+    public class XmlTreeStorageProvider : IXmlStorageProvider
     {
         public XmlValidationTree GetXmlTree(int id)
         {
@@ -36,7 +36,6 @@ namespace DotValTree.Provider.XML
                 if (dbTree.ValidationId == 0)
                     context.ValidationTree.Add(dbTree);
                 
-
                 context.SaveChanges();
 
                 return dbTree;
